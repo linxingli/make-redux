@@ -9,7 +9,7 @@ export const connect = (mapStateToProps) => (WrappedComponent) => {
     }
   
     render () {
-      const store = this.context
+      const { store } = this.context
       let stateProps = mapStateToProps(store.getState())
       return (
         <WrappedComponent {...stateProps} />

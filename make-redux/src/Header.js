@@ -1,34 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Connect from './react-redux'
+import { connect } from './react-redux'
+
+console.log('connect', connect);
+
 
 class Header extends Component {
   static contextTypes = {
-    store: PropTypes.object
+    themeColor: PropTypes.string
   }
 
-  constructor () {
-    super()
-    this.state = {
-      themeColor: ''
-    }
-  }
+  // componentWillMount () {
+  //   const { store } = this.context
+  //   this._updateThemeColor()
+  //   store.subscribe(() => this._updateThemeColor())
+  // }
 
-  componentWillMount () {
-    const { store } = this.context
-    this._updateThemeColor()
-    store.subscribe(() => this._updateThemeColor())
-  }
-
-  _updateThemeColor () {
-    const { store } = this.context
-    const state = store.getState()
-    this.setState({ themeColor: state.themeColor })
-  }
+  // _updateThemeColor () {
+  //   const { store } = this.context
+  //   const state = store.getState()
+  //   this.setState({ themeColor: state.themeColor })
+  // }
 
   render () {
     return (
-      <h1 style={{ color: this.state.themeColor }}>make redux ---- header</h1>
+      <h1 style={{ color: this.props.themeColor }}>make redux ---- header</h1>
     )
   }
 
@@ -40,5 +36,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-Header = Connect(mapStateToProps)(Header)
+Header = connect(mapStateToProps)(Header)
 export default Header
