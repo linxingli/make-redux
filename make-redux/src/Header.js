@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from './react-redux'
+// import { connect } from './react-redux'
+import { connect } from 'react-redux' // 引入真正的connect高阶组件
 
 console.log('connect', connect);
 

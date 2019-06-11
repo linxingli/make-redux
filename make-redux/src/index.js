@@ -4,20 +4,23 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Header from './Header'
 import Content from './Content'
-import { Provider } from './react-redux'
+// import { Provider } from './react-redux'
+import { Provider } from 'react-redux' // 引入真正的Provider
+import { createStore } from 'redux' // 引入真正的createStore
 
-function createStore (reducer) {
-  let state = null
-  const listeners = []
-  const subscribe = (listener) => listeners.push(listener)
-  const getState = () => state
-  const dispatch = (action) => {
-    state = reducer(state, action)
-    listeners.forEach((listener) => listener())
-  }
-  dispatch({}) // 初始化 state
-  return { getState, dispatch, subscribe }
-}
+// 以下为手写的 createStore
+// function createStore (reducer) {
+//   let state = null
+//   const listeners = []
+//   const subscribe = (listener) => listeners.push(listener)
+//   const getState = () => state
+//   const dispatch = (action) => {
+//     state = reducer(state, action)
+//     listeners.forEach((listener) => listener())
+//   }
+//   dispatch({}) // 初始化 state
+//   return { getState, dispatch, subscribe }
+// }
 
 const themeReducer = (state, action) => {
   if (!state) return {
