@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Header from './Header'
-import Content from './Content'
+import Header from './containers/Header'
+import Content from './containers/Content'
 // import { Provider } from './react-redux'
 import { Provider } from 'react-redux' // 引入真正的Provider
 import { createStore } from 'redux' // 引入真正的createStore
